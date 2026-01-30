@@ -12,16 +12,16 @@ import re
 import stomper
 
 # regexp to check that the buffer starts with a command.
-command_re = re.compile ( '^(.*?)\n' )
+command_re = re.compile ( r'^(.*?)\n' )
 
 # regexp to remove everything up to and including the first
 # instance of '\x00\n' (used in resynching the buffer).
-sync_re = re.compile ( '^.*?\x00\n' )
+sync_re = re.compile ( r'^.*?\x00\n' )
 
 # regexp to determine the content length. The buffer should always start
 # with a command followed by the headers, so the content-length header will
 # always be preceded by a newline.
-content_length_re = re.compile ( '\ncontent-length\s*:\s*(\d+)\s*\n' )
+content_length_re = re.compile ( r'\ncontent-length\s*:\s*(\d+)\s*\n' )
 
 # Separator between the header and the body.
 len_sep = len ( '\n\n' )
